@@ -1,0 +1,262 @@
+##### Products
+GET http://localhost:8080/dae-backend/api/products
+Accept: application/json
+
+###
+POST http://localhost:8080/dae-backend/api/products
+Content-Type: application/json
+
+{
+  "code": 757,
+  "name": "Product TEST",
+  "unit_price": 100.00,
+  "weight": 2.0,
+  "catalogCode": 1
+}
+
+### REQUEST JWT TOKEN
+POST http://localhost:8080/dae-backend/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "m1",
+  "password": "123"
+}
+
+### GET ALL END CONSUMERS
+GET http://localhost:8080/dae-backend/api/endConsumers
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJtMSIsImlhdCI6MTcwNTE1NzM1MywiZXhwIjoxNzA1MTYwOTUzfQ.CP7UWvFiL43Z1AzTrcs-wIO4Iisr48C4pKjkLzfUmnEfEtA05RxEx7tMT3j4Udqz
+
+### Update End Consumer
+PUT http://localhost:8080/dae-backend/api/endConsumers/
+Content-Type: application/json
+
+{
+  "username": "ec1",
+  "name": "End Consumer 2",
+  "email": "endConsumer_2@mail.pt",
+  "address": "Rua 12",
+  "phoneNumber": "123456789999"
+}
+
+### Update Logistic Operator
+PUT http://localhost:8080/dae-backend/api/logisticOperators/
+Content-Type: application/json
+
+{
+  "username": "lo1",
+  "name": "Logistic Operator 2",
+  "email": "logisticOperator_2@mail.pt",
+  "company": "CTTTT",
+  "vehicleType": "Carrr",
+  "licensePlate": "AA-000-AA",
+  "contact": "9876543212"
+}
+
+### Update Manufacturers
+PUT http://localhost:8080/dae-backend/api/manufacturers/
+Content-Type: application/json
+
+{
+  "username": "m1",
+  "name": "Manufacturer 2",
+  "email": "manufacturer_2@mail.pt",
+  "industry": "Appleee",
+  "location": "Leiriiia Shopping",
+  "contact": "12345678911"
+}
+
+
+### GET END CONSUMER
+GET http://localhost:8080/dae-backend/api/endConsumers/ec1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJtMSIsImlhdCI6MTcwNTE1NzM1MywiZXhwIjoxNzA1MTYwOTUzfQ.CP7UWvFiL43Z1AzTrcs-wIO4Iisr48C4pKjkLzfUmnEfEtA05RxEx7tMT3j4Udqz
+
+### GET ALL ORDERS
+GET http://localhost:8080/dae-backend/api/orders
+Accept: application/json
+
+### GET ORDER
+GET http://localhost:8080/dae-backend/api/orders/1
+Accept: application/json
+
+##### Packages
+GET http://localhost:8080/dae-backend/api/packages
+Accept: application/json
+
+##### Packages
+GET http://localhost:8080/dae-backend/api/packages/1
+Accept: application/json
+
+### GET LOGISTIC OPERATOR
+GET http://localhost:8080/dae-backend/api/logisticOperators/lo1
+Accept: application/json
+
+### GET ALL LOGISTIC OPERATORS
+GET http://localhost:8080/dae-backend/api/logisticOperators/
+Content-Type: application/json
+
+### DELETE ORDER
+DELETE http://localhost:8080/dae-backend/api/orders/2
+
+### ADD LOGISTIC OPERATOR TO ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/logisticOperator/lo1/add
+Content-Type: application/json
+
+### REMOVE LOGISTIC OPERATOR TO ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/logisticOperator/lo1/remove
+Content-Type: application/json
+
+### get products from order
+GET http://localhost:8080/dae-backend/api/orders/1/products
+Accept: application/json
+
+### get product from order
+GET http://localhost:8080/dae-backend/api/orders/1/products/111
+Accept: application/json
+
+### get packages from order
+GET http://localhost:8080/dae-backend/api/orders/1/packages
+Accept: application/json
+
+### get package from order
+GET http://localhost:8080/dae-backend/api/orders/1/packages/1
+Accept: application/json
+
+
+### ADD PRODUCT TO ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/products/222/add
+Content-Type: application/json
+
+### ADD PRODUCT TO ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/products/333/add
+Content-Type: application/json
+
+### REMOVE PRODUCT TO ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/products/111/remove
+Content-Type: application/json
+
+### get products from order
+GET http://localhost:8080/dae-backend/api/orders/1/products
+Accept: application/json
+
+### get products
+GET http://localhost:8080/dae-backend/api/products
+Accept: application/json
+
+
+### CREATE NEW CATALOG
+POST http://localhost:8080/dae-backend/api/catalogs
+Content-Type: application/json
+
+{
+  "code": 4,
+  "name": "Catalog 4",
+  "manufacturerUsername": "m1"
+}
+
+### GET CATALOG DETAILS
+GET http://localhost:8080/dae-backend/api/catalogs/1
+Accept: application/json
+
+### GET ALL PRODUCTS FROM CATALOG
+GET http://localhost:8080/dae-backend/api/catalogs/1/products
+Accept: application/json
+
+### UPDATE CATALOG
+PUT http://localhost:8080/dae-backend/api/catalogs/
+Content-Type: application/json
+
+{
+  "code": 3,
+  "name": "Teste aaaa",
+  "manufacturerUsername": "m1"
+}
+
+### DELETE CATALOG
+DELETE http://localhost:8080/dae-backend/api/catalogs/4
+
+### ADD SENSOR TO PACKAGE
+POST http://localhost:8080/dae-backend/api/sensors/1/package/1
+
+### REMOVE SENSOR FROM PACKAGE
+POST http://localhost:8080/dae-backend/api/packages/1/removeSensor/1
+
+### CREATE SENSOR
+POST http://localhost:8080/dae-backend/api/sensors/
+Content-Type: application/json
+
+{
+  "type": "Temperature Sensor",
+  "location": "Room A",
+  "timestamp": 1705789815608,
+  "status": "ACTIVE"
+}
+
+### DELETE SENSOR
+DELETE http://localhost:8080/dae-backend/api/sensors/3
+
+### UPDATE SENSOR
+POST http://localhost:8080/dae-backend/api/sensors/
+Content-Type: application/json
+
+{
+  "type": "Temperature Sensor",
+  "location": "Room A",
+  "timestamp": "2024-01-12T00:00:00",
+  "status": "ACTIVE"
+}
+
+
+### REMOVE PACKAGE FROM ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/packages/1/remove
+Content-Type: application/json
+
+### ADD PACKAGE TO ORDER
+PATCH http://localhost:8080/dae-backend/api/orders/1/packages/2/add
+Content-Type: application/json
+
+### MARK ORDER AS DELIVERED
+PATCH http://localhost:8080/dae-backend/api/orders/1/deliver
+Content-Type: application/json
+
+### MARK ORDER AS SHIPP
+PATCH http://localhost:8080/dae-backend/api/orders/1/shipped
+Content-Type: application/json
+
+### GET ORDER
+GET http://localhost:8080/dae-backend/api/orders/1
+Content-Type: application/json
+
+##### GET PACKAGE
+GET http://localhost:8080/dae-backend/api/packages/1
+Accept: application/json
+
+### CREATE ORDER
+POST http://localhost:8080/dae-backend/api/orders/
+Content-Type: application/json
+
+{
+  "payment_method": "CREDIT_CARD",
+  "endConsumer": {
+    "username": "ec1"
+  }
+}
+
+### GET ALL PRODUCTS FROM PACKAGE
+GET http://localhost:8080/dae-backend/api/packages/1/products
+Accept: application/json
+
+### GET PRODUCT FROM PACKAGE
+GET http://localhost:8080/dae-backend/api/packages/1/products/333
+Accept: application/json
+
+### ADD PRODUCT TO PACKAGE
+PATCH http://localhost:8080/dae-backend/api/packages/1/products/222/add
+Content-Type: application/json
+
+### REMOVE PRODUCT FROM PACKAGE
+PATCH http://localhost:8080/dae-backend/api/packages/1/products/222/remove
+Content-Type: application/json
